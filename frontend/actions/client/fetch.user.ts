@@ -1,4 +1,4 @@
-import { fetcher } from "@/lib/authentication/server/fetcher";
+import { fetcher } from "@/lib/authentication/client";
 
 export async function getCurrentUser() {
     try {

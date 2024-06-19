@@ -1,5 +1,5 @@
 import Cookies from "js-cookie";
-import wretch from "wretch";
+import { api } from "@/lib/authentication/common/api";
 
 type Token = "access" | "refresh";
 
@@ -23,15 +23,10 @@ type ResetPasswordProps = {
     uid: string;
 };
 
-const api = wretch(process.env.NEXT_PUBLIC_API!).accept("application/json");
-
-export const storeToken = (token: string, type: Token) => {
+export const storeToken = (token: string, type: Token) =>
     Cookies.set(type + "Token", token);
-};
 
-export const getToken = (type: Token) => {
-    Cookies.get(type + "Token");
-};
+export const getToken = (type: Token) => Cookies.get(type + "Token");
 
 export const removeTokens = () => {
     Cookies.remove("accessToken");

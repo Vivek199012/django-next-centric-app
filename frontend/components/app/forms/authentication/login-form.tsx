@@ -1,6 +1,6 @@
 "use client";
 
-import { login, storeToken } from "@/lib/authentication";
+import { login, storeToken } from "@/lib/authentication/client";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { useHydration } from "@/hooks/useHydration";
