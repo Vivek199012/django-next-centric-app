@@ -64,6 +64,9 @@ DJOSER = {
         "user_create": "account.serializers.UserCreateSerializer",
         "current_user": "account.serializers.CurrentUserSerializer",
     },
+    "EMAIL": {
+        "password_reset": "account.views.ResetPasswordView",
+    },
 }
 
 SITE_NAME = "Test Django Next.js"
@@ -90,14 +93,21 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "sandbox.smtp.mailtrap.io"
+EMAIL_PORT = 2525
+EMAIL_HOST_USER = "1ff9290cc61c81"
+EMAIL_HOST_PASSWORD = "8676cc1b2fcde4"
+EMAIL_USE_TLS = True
+
+DEFAULT_FROM_EMAIL = "centric@gmail.com"
 
 ROOT_URLCONF = "core.urls"
 
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": ["../templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
