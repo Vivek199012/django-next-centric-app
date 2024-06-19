@@ -1,11 +1,19 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { getCurrentUser } from "@/actions/server/fetch.user";
+import { loggedIn } from "./actions/server/logged-in";
 
 export async function middleware(request: NextRequest) {
-    const user = await getCurrentUser();
+    const isLoggedIn = await loggedIn();
 
-    if (!user && request.nextUrl.pathname !== "/") {
+    if (
+        !isLoggedIn &&
+        (request.nextUrl.pathname === "/signup" ||
+            request.nextUrl.pathname === "/login")
+    ) {
+        return NextResponse.next();
+    }
+
+    if (!isLoggedIn && request.nextUrl.pathname !== "/") {
         return NextResponse.redirect(new URL("/", request.url));
     }
 }

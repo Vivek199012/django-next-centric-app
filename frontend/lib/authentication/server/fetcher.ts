@@ -18,8 +18,8 @@ const api = () => {
                         console.error("Unauthorized");
                     })
                     .json();
-            } catch (error) {
-                console.error(error);
+            } catch (error: any) {
+                console.log(error);
             }
         });
 };

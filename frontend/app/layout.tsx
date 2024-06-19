@@ -4,7 +4,6 @@ import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import Header from "@/components/header";
 import { ThemeProvider } from "@/components/providers/theme-provider";
-import { PageProvider } from "@/components/providers/page-provider";
 import { Toaster } from "@/components/ui/toaster";
 
 const fontSans = FontSans({

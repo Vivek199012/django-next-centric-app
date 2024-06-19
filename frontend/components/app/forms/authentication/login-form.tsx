@@ -66,6 +66,7 @@ export const LoginForm = () => {
                 storeToken(data.access, "access");
                 storeToken(data.refresh, "refresh");
                 router.push("/dashboard");
+                router.refresh();
             })
             .catch((error: any) => {
                 const parsedError = JSON.parse(error.message);
