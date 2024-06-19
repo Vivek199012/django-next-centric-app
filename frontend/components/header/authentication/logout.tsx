@@ -5,7 +5,7 @@ import { logout, removeTokens } from "@/lib/authentication/client";
 import { useRouter } from "next/navigation";
 
 const Logout = () => {
-    const router = useRouter()
+    const router = useRouter();
 
     const handleLogout = () => {
         logout()
@@ -13,18 +13,24 @@ const Logout = () => {
                 removeTokens();
                 router.push("/login");
                 router.refresh();
-            }).catch(() => {
+            })
+            .catch(() => {
                 removeTokens();
                 router.push("/login");
-                router.refresh()
-            })
-    }
+                router.refresh();
+            });
+    };
 
     return (
-        <Button onClick={handleLogout} className="px-4" size="sm" variant="outline">
+        <Button
+            onClick={handleLogout}
+            className="px-4"
+            size="sm"
+            variant="outline"
+        >
             Logout
         </Button>
-    )
-}
+    );
+};
 
 export default Logout;

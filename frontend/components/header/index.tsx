@@ -18,8 +18,14 @@ const Header = async () => {
                     <ModeToggle />
 
                     <div className="flex gap-2">
-                        {!isLoggedIn ? <><Login />
-                            <Signup /></> : <Logout />}
+                        {!isLoggedIn ? (
+                            <>
+                                <Login />
+                                <Signup />
+                            </>
+                        ) : (
+                            <Logout />
+                        )}
                     </div>
                 </div>
             </div>
