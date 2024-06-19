@@ -1,5 +1,5 @@
 import Cookies from "js-cookie";
-import { api } from "@/lib/authentication/common/api";
+import { api } from "@/lib/common/api";
 
 type Token = "access" | "refresh";
 

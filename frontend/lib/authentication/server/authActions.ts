@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { Token } from "@/lib/authentication/common/types";
-import { api } from "@/lib/authentication/common/api";
+import { api } from "@/lib/common/api";
 
 export const storeToken = (token: string, type: Token) => {
     cookies().set(type + "Token", token);
